@@ -1,0 +1,7 @@
+FROM php:7.2.6-extension
+COPY ./calc /calc
+WORKDIR /calc
+RUN /usr/local/bin/phpize
+RUN ./configure --with-php-config=php-config
+RUN make && make install
+RUN echo 'extension=calc.so' > /usr/local/etc/php/conf.d/calc.ini
