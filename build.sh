@@ -25,6 +25,7 @@ $@
 #生成扩展基础代码
 extension)
 	docker build -f ./Dockerfile1 -t php:7.2.6-extension .
+	docker run --rm -v $PWD:/data php:7.2.6-extension
 ;;
 *)
 	sh $0 make
